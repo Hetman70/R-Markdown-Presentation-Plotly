@@ -1,0 +1,42 @@
+---
+title: "Impact of weight and number of cylinder on miles per gallon (MPG)"
+author: "Antonio Avella"
+date: "September 5, 2018"
+output:
+  slidy_presentation: default
+  ioslides_presentation: default
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, cache = TRUE, echo = FALSE, 
+                      message = FALSE, warning = FALSE)
+```
+
+## Introduction
+
+- This project was created as part of the Developing Data Products course of the Coursera [Data Science Specialization](https://www.coursera.org/specializations/jhu-data-science).
+
+- The goal of the project is to create a web page presentation using R Markdown that features a plot created with Plotly, and to host the resulting web page on either GitHub Pages, RPubs, or NeoCities.
+
+Using the `mtcars` dataset, we  plot the relationship
+of weight and number of cylinders to gas mileage (`mpg`) using plotly plots.
+
+We plot weight (`wt`) vs. mileage (`mpg`) spatially along the x/y axes and  
+visualize the number of cylinders (`cyl`) as colors. 
+
+## Visualizing the Data
+
+```{r plot, echo=FALSE}
+library(plotly)
+plot_ly(data = mtcars, x = ~wt, y = ~mpg, 
+        color = ~as.factor(cyl), 
+        type = "scatter", 
+        mode = "markers" ) %>%
+  layout(title = "Car Data")
+```
+
+## Notes
+
+### Source code
+
+- The R Markdown source code of this presentation can be found in [this GitHub repository](https://github.com/Hetman70/R-Markdown-Presentation-Plotly).
